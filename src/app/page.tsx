@@ -36,17 +36,23 @@ export default function Home() {
 	}, []);
 
 	return (
-		<main className='flex min-h-screen flex-col sm:p-24 p-10 select-none'>
+		<main className='flex min-h-screen flex-col sm:p-24 p-10'>
 			<div className='flex justify-between'>
-				<div className='flex flex-col gap-2 sm:mb-20 mb-8'>
-					<h1 className='text-4xl tracking-wide'>Justin Carver</h1>
+				<div className='flex flex-col gap-2 sm:mb-20 mb-8 select-none'>
+					<div
+						className='cursor-pointer'
+						onClick={() => setCurrentNav('Landing')}>
+						<h1 className='text-4xl tracking-wide mb-2'>
+							Justin Carver
+						</h1>
+					</div>
 					<h3 className='text-sm text-gray-400 dark:text-slate-500'>
 						{splashScreen !== '' ? (
 							<em>{splashScreen}</em>
 						) : (
 							<div>
-								<Skeleton className='h-4 w-[full]' />
-								<Skeleton className='h-4 w-3/4' />
+								<Skeleton className='h-4 w-full' />
+								<Skeleton className='h-4 w-3/4 mt-2' />
 							</div>
 						)}
 					</h3>
@@ -63,8 +69,8 @@ export default function Home() {
 				</Button>
 			</div>
 			<div className='flex sm:flex-row flex-col'>
-				<nav className='pr-20'>
-					<ul className='flex flex-row sm:flex-col mb-6 gap-3 justify-between sm:w-fit'>
+				<nav className='pr-24 select-none sm:w-auto'>
+					<ul className='flex flex-row sm:flex-col mb-6 gap-3 justify-normal sm:w-fit cursor-pointer'>
 						{Object.keys(navigation)
 							.filter((link) => link !== 'Landing')
 							.map((link) => (
@@ -72,7 +78,7 @@ export default function Home() {
 									key={link}
 									className={`${
 										currentNav == link ? 'currentnav ' : ''
-									} p-1`}
+									} p-1 hover:text-slate-700/50 hover:dark:text-gray-500`}
 									onClick={() =>
 										setCurrentNav(link as NavigationType)
 									}>

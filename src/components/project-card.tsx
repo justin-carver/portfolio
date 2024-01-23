@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 const ProjectCard = () => {
 	return (
-		<Card className='max-w-[500px] min-w-[300px]'>
+		<Card className='max-w-[300px]'>
 			<CardContent className='p-0 bg-clip-padding'>
 				<Image
 					src={'/devwork.jpg'}
