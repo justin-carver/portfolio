@@ -8,25 +8,38 @@ import {
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 
-const ProjectCard = () => {
+const ProjectCard = (props: any) => {
 	return (
-		<Card className='max-w-[300px]'>
-			<CardContent className='p-0 bg-clip-padding'>
-				<Image
-					src={'/devwork.jpg'}
-					alt={''}
-					width={500}
-					height={500}
-					layout={'responsive'}
-				/>
-			</CardContent>
-			<CardHeader>
-				<CardTitle>Project Title</CardTitle>
-				<CardDescription>Card Description</CardDescription>
-				<div className='flex flex-row pt-2'>
-					<Badge variant={'secondary'}>Next.js</Badge>
-				</div>
-			</CardHeader>
+		<Card className='flex xl:flex-row flex-col'>
+			<div>
+				<CardContent className='pt-6'>
+					<div className='max-w-[500px]'>
+						<Image
+							src={props.src || '/devwork.jpg'}
+							alt={props.alt || ''}
+							width={500}
+							height={500}
+						/>
+					</div>
+				</CardContent>
+				<CardHeader className='pt-0'>
+					<CardTitle>{props.projectTitle}</CardTitle>
+					<CardDescription>
+						{props.projectDescription}
+					</CardDescription>
+					<div className='flex pt-2 gap-2'>
+						{props.projectTags.map((tag: string) => (
+							<Badge variant={'secondary'} key={tag}>
+								{tag}
+							</Badge>
+						))}
+					</div>
+				</CardHeader>
+			</div>
+			<div className='p-6 text-sm dark:text-slate-500'>
+				<p>Notes from Justin:</p>
+				<p></p>
+			</div>
 		</Card>
 	);
 };
