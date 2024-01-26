@@ -8,14 +8,10 @@ import { Github } from 'lucide-react';
 import Projects from '@/components/projects';
 import Landing from '@/components/landing';
 
+import { sayings } from '@/lib/data';
+
 export default function Home() {
     const [splashScreen, setSplashScreen] = useState<string>('');
-    const sayings: string[] = [
-        "// I'm a developer, analyst, writer, and systems administrator!",
-        '/* In Python, I use def to define solutions */',
-        '<!-- Full Stack Developer! Next.js 14 Powered Website! -->',
-        "SELECT 'Cyber Security' FROM skills WHERE passion = true;",
-    ];
 
     type NavigationType = 'Landing' | 'Projects' | 'Blog' | 'Contact' | 'Resume';
     const [currentNav, setCurrentNav] = useState<NavigationType>('Landing');
@@ -41,7 +37,7 @@ export default function Home() {
                     </div>
                     <h3 className="text-sm text-gray-400 dark:text-slate-500">
                         {splashScreen !== '' ? (
-                            <em>{splashScreen}</em>
+                            <em className="font-mono">{splashScreen}</em>
                         ) : (
                             <div>
                                 <Skeleton className="h-4 w-full" />

@@ -4,7 +4,6 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import {
     AlertDialog,
     AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
@@ -12,12 +11,25 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-
+import { useEffect, useState } from 'react';
 import { Info } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 
 const ProjectCard = (props: any) => {
+    const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
+    const [contMsgIndex, setContMsgIndex] = useState<number>(0);
+    const continueMessages: string[] = ['Wow!', 'Neat 📸', 'Interesting 🤔'];
+
+    const updateMedia = () => {
+        setDesktop(window.innerWidth > 1450);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', updateMedia);
+        return () => window.removeEventListener('resize', updateMedia);
+    });
+
     return (
         <Card className="flex flex-col max-w-[500px]">
             <div>
@@ -32,32 +44,39 @@ const ProjectCard = (props: any) => {
                             <CardTitle>{props.projectTitle}</CardTitle>
                             <CardDescription>{props.projectDescription}</CardDescription>
                         </div>
-                        <div className="flex p-4">
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <Info size={32} color="rgb(148 163 184)" />
-                                </PopoverTrigger>
-                                <PopoverContent className="dark:text-slate-400 p-6 m-4">
-                                    {props.projectNotes}
-                                </PopoverContent>
-                            </Popover>
-                            {/* ---- */}
-                            <AlertDialog>
-                                <AlertDialogTrigger>Open</AlertDialogTrigger>
-                                <AlertDialogContent>
-                                    <AlertDialogHeader>
-                                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                                        <AlertDialogDescription>
-                                            This action cannot be undone. This will permanently delete your account and
-                                            remove your data from our servers.
-                                        </AlertDialogDescription>
-                                    </AlertDialogHeader>
-                                    <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction>Continue</AlertDialogAction>
-                                    </AlertDialogFooter>
-                                </AlertDialogContent>
-                            </AlertDialog>
+                        <div className="flex p-2">
+                            {isDesktop ? (
+                                <Popover>
+                                    <PopoverTrigger asChild className="cursor-help">
+                                        <Info size={32} color="rgb(148 163 184)" />
+                                    </PopoverTrigger>
+                                    <PopoverContent className="dark:text-slate-400 p-6 m-4 w-[600px] text-center">
+                                        {props.projectNotes}
+                                    </PopoverContent>
+                                </Popover>
+                            ) : (
+                                <AlertDialog>
+                                    <AlertDialogTrigger
+                                        onClick={() => {
+                                            let r = Math.floor(Math.random() * continueMessages.length);
+                                            setContMsgIndex(r);
+                                        }}
+                                    >
+                                        <Info size={28} color="rgb(148 163 184)" />
+                                    </AlertDialogTrigger>
+                                    <AlertDialogContent className="p-10 flex flex-col gap-8">
+                                        <AlertDialogHeader>
+                                            <AlertDialogTitle>
+                                                <em className="font-light">Notes from Justin:</em>
+                                            </AlertDialogTitle>
+                                            <AlertDialogDescription>{props.projectNotes}</AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                            <AlertDialogAction>{continueMessages[contMsgIndex]}</AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
+                            )}
                         </div>
                     </div>
                     <div className="flex pt-2 gap-2">

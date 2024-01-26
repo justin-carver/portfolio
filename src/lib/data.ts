@@ -7,6 +7,33 @@ type completedProjectType = {
     projectImage: string;
 };
 
+export const sayings = [
+    '// Correcting Layer 8 issues is my full-time job.',
+    '/* Now with more undefined behavior! */',
+    '<!-- <Coffee /> -->',
+    "-- SELECT 'sanity' FROM users WHERE experience > 10 YEARS; -- No rows returned.",
+    '(* Patching reality, please stand by. *)',
+    '; Have you tried turning it off and on again?',
+    "# It's not a bug; it's an undocumented feature.",
+    '<!-- fix the fork; fork a fix -->',
+    '# Rebooting expectations!',
+    '▓▓▓▓▓▓▓▓▓▒▒▒░░ Coffee: 85%...',
+    '-- DROP TABLE users; -- Oops.',
+    "% Let's see AI try to flash BIOS firmware",
+    '#! /usr/bin/coffee.sh',
+    '; Crashing terminals since 2010!',
+    '{/* Props to my <components /> for running this webpage */}',
+    '# Can AI attend my meetings for me?',
+    '{/* Entering quadruple-digit uptime! */}',
+    '// Spaghetti Code Saturdays',
+    '/* React: Making HTML inside JavaScript normal since 2013. */',
+    "-- INSERT INTO brain (knowledge) VALUES ('DevOps'); -- Disk full.",
+    '% Docker: Because installing software is too mainstream.',
+    '(* Kubernetes is orchestrated chaos, with more YAML. *)',
+    '% Ask me about my network/homelab!',
+    '# Heating up some CPU cores...',
+];
+
 export const completedProjects: completedProjectType[] = [
     {
         projectTitle: 'Squrl',

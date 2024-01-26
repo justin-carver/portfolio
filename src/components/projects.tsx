@@ -2,17 +2,6 @@
 
 import ProjectCard from './project-card';
 import { completedProjects } from '@/lib/data';
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from '@/components/ui/alert-dialog';
 
 const Projects = () => {
     return (
