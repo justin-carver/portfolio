@@ -7,6 +7,26 @@ type completedProjectType = {
     projectImage: string;
 };
 
+type colorsType = {
+    primary: string;
+    secondary: string;
+    link: string;
+};
+
+export const brandThemes: colorsType[] = [
+    {
+        primary: 'text-sky-600',
+        secondary: 'text-sky-800',
+        link: 'text-emerald-500',
+    },
+];
+
+export const brandColors: colorsType = {
+    primary: 'text-sky-600',
+    secondary: 'text-sky-800',
+    link: 'text-emerald-500',
+};
+
 export const sayings = [
     '// Correcting Layer 8 issues is my full-time job.',
     '/* Now with more undefined behavior! */',

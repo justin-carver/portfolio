@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
 import { Github } from 'lucide-react';
 
+import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 import Projects from '@/components/projects';
 import Landing from '@/components/landing';
 
@@ -41,7 +41,7 @@ export default function Home() {
                         ) : (
                             <div>
                                 <Skeleton className="h-4 w-full" />
-                                <Skeleton className="h-4 w-3/4 mt-2" />
+                                <Skeleton className="h-4 w-3/4 mt-2 sm:hidden" />
                             </div>
                         )}
                     </h3>

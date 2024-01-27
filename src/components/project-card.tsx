@@ -19,7 +19,22 @@ import Image from 'next/image';
 const ProjectCard = (props: any) => {
     const [isDesktop, setDesktop] = useState(window.innerWidth > 1450);
     const [contMsgIndex, setContMsgIndex] = useState<number>(0);
-    const continueMessages: string[] = ['Wow!', 'Neat 📸', 'Interesting 🤔'];
+    const continueMessages: string[] = [
+        'Wow! 😲',
+        'Neat 📸',
+        'Interesting 🤔',
+        'Impressive! 👏',
+        'Brilliant! 💡',
+        'Innovative! 🚀',
+        'Creative! 🎨',
+        'Dynamic! ⚡',
+        'Skillful! 🛠️',
+        'Clever! 🧠',
+        'Polished! ✨',
+        'Vibrant! 🌈',
+        'Engaging! 🤝',
+        'Sharp! 📐',
+    ];
 
     const updateMedia = () => {
         setDesktop(window.innerWidth > 1450);
@@ -64,7 +79,7 @@ const ProjectCard = (props: any) => {
                                     >
                                         <Info size={28} color="rgb(148 163 184)" />
                                     </AlertDialogTrigger>
-                                    <AlertDialogContent className="p-10 flex flex-col gap-8">
+                                    <AlertDialogContent className="p-10 flex flex-col items-center gap-8">
                                         <AlertDialogHeader>
                                             <AlertDialogTitle>
                                                 <em className="font-light">Notes from Justin:</em>
