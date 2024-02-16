@@ -1,8 +1,8 @@
-import Landing from '@/components/landing';
 import { InitMetadata } from '@/components/metadata';
+import Projects from '@/components/projects';
 
 export const metadata = InitMetadata({
-    title: 'Justin Carver — Professional Freelance Web Developer',
+    title: `Justin Carver's Projects`,
     description:
         'Discover the innovative web development and cybersecurity expertise \
     of Justin Carver. With over a decade in IT, a BSc in Cybersecurity, \
@@ -11,12 +11,8 @@ export const metadata = InitMetadata({
     Explore cutting-edge projects and an SME for many business IT needs.',
 });
 
-export default function Home() {
-    return (
-        <main className="flex min-h-screen flex-col">
-            <div className="flex sm:flex-row flex-col">
-                <Landing />
-            </div>
-        </main>
-    );
-}
+const Page = () => {
+    return <Projects />;
+};
+
+export default Page;
