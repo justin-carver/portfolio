@@ -16,7 +16,7 @@ const Landing = () => {
     };
 
     return (
-        <div className="flex max-w-[1000px]">
+        <div className="flex max-w-[1300px]">
             {
                 <code className="flex flex-col gap-4">
                     <div>

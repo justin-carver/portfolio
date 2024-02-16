@@ -1,7 +1,12 @@
 'use client';
 
+import { InitMetadata } from './metadata';
 import ProjectCard from './project-card';
 import { completedProjects } from '@/lib/data';
+
+export const metadata = InitMetadata({
+    title: 'Justin Carver -- Projects',
+});
 
 const Projects = () => {
     return (
